@@ -6,7 +6,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
 
-const BottomNavbar = () => {
+const TopNavbar = () => {
   const navigation = useNavigation();
 
   const navigateToHome = () => {
@@ -31,11 +31,7 @@ const BottomNavbar = () => {
         <View style={styles.itemContainer}>
           <TouchableOpacity onPress={navigateToHome}>
             <View style={styles.iconTextContainer}>
-              <Image
-                style={{ width: 20, height: 20 }}
-                source={require("../assets/CasinoWhite.png")}
-              />
-              <Text style={styles.navItem}>Home</Text>
+              <FontAwesomeIcon name="user" size={20} color={"grey"} />
             </View>
           </TouchableOpacity>
         </View>
@@ -50,11 +46,11 @@ const BottomNavbar = () => {
         </View>
 
         <View style={styles.itemContainer}>
-          <TouchableOpacity onPress={navigateToLive}>
-            <View style={styles.iconTextContainer}>
-              <Entypo name="flash" size={20} color={"grey"} />
-              <Text style={styles.navItem}>Flash</Text>
-            </View>
+          <TouchableOpacity onPress={navigateToGames}>
+            <Image
+              style={{ width: 20, height: 20 }}
+              source={require("../assets/CasinoWhite.png")}
+            />
           </TouchableOpacity>
         </View>
 
@@ -70,11 +66,7 @@ const BottomNavbar = () => {
         <View style={styles.itemContainer}>
           <TouchableOpacity onPress={navigateToBalance}>
             <View style={styles.iconTextContainer}>
-              <FontAwesomeIcon5
-                name="money-bill-wave"
-                size={15}
-                color={"grey"}
-              />
+              <Text style={(styles.navItem, { color: "green" })}>$78.00</Text>
               <Text style={styles.navItem}>Balance</Text>
             </View>
           </TouchableOpacity>
@@ -87,16 +79,18 @@ const BottomNavbar = () => {
 const styles = StyleSheet.create({
   navbar: {
     position: "absolute",
-    bottom: 0,
+    top: 0, // Position at the top
     left: 0,
     right: 0,
-    height: 80,
-    backgroundColor: "#0f0f0f",
+    height: 100,
+    backgroundColor: "black",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 10,
-    paddingBottom: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    paddingTop: 30, // Adjust the top padding
   },
   centeredView: {
     flex: 1,
@@ -116,8 +110,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "grey",
     fontWeight: "400",
-    marginTop: 7,
+    marginTop: 3,
   },
 });
 
-export default BottomNavbar;
+export default TopNavbar;
