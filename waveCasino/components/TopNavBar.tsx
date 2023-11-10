@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 100,
-    backgroundColor: "black",
+    backgroundColor: "#0f0f0f",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
