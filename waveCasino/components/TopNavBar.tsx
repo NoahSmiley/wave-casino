@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View, Image, TouchableOpacity, StyleSheet } from "react-native";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import FontAwesomeIcon5 from "react-native-vector-icons/FontAwesome5";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";

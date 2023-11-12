@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import MaterialIconsCommunity from "react-native-vector-icons/MaterialCommunityIcons";
-const YourComponent = () => {
+const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.centeredView}>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default YourComponent;
+export default Home;
