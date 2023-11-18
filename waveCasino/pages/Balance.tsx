@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
   },
   centeredView: {
     flex: 1,
-    justifyContent: "center", // Center vertically
-    alignItems: "center", // Center horizontally
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     fontSize: 25,

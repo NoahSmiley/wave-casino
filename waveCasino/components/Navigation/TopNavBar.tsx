@@ -4,6 +4,9 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import AnimatedNumber from "react-native-animated-number";
 
 const TopNavbar = () => {
   const navigation = useNavigation();
@@ -23,6 +26,8 @@ const TopNavbar = () => {
   const navigateToBalance = () => {
     navigation.navigate("Balance");
   };
+  
+  const balance = useSelector((state: RootState) => state.myReducer.value);
 
   return (
     <View style={{ backgroundColor: "black" }}>
@@ -47,8 +52,9 @@ const TopNavbar = () => {
         <View style={styles.itemContainer}>
           <TouchableOpacity onPress={navigateToGames}>
             <Image
+              alt="casino"
               style={{ width: 20, height: 20 }}
-              source={require("../assets/CasinoWhite.png")}
+              source={require("../../assets/CasinoWhite.png")}
             />
           </TouchableOpacity>
         </View>
@@ -65,7 +71,12 @@ const TopNavbar = () => {
         <View style={styles.itemContainer}>
           <TouchableOpacity onPress={navigateToBalance}>
             <View style={styles.iconTextContainer}>
-              <Text style={(styles.navItem, { color: "green" })}>$78.00</Text>
+              <AnimatedNumber
+                value={balance}
+                formatter={(val) => `$${val.toFixed(2)}`}
+                style={{ color: "#29CF56", fontSize: 13 }}
+                time={35}
+              />
               <Text style={styles.navItem}>Balance</Text>
             </View>
           </TouchableOpacity>
@@ -78,7 +89,7 @@ const TopNavbar = () => {
 const styles = StyleSheet.create({
   navbar: {
     position: "absolute",
-    top: 0, // Position at the top
+    top: 0,
     left: 0,
     right: 0,
     height: 100,
@@ -89,7 +100,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    paddingTop: 30, // Adjust the top padding
+    paddingTop: 30,
   },
   centeredView: {
     flex: 1,
